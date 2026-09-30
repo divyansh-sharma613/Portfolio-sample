@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Manrope:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/demo.css">
+<title>Urban Cart</title>
+</head>
+<body style="--a:#0f9d74;--hg:linear-gradient(120deg,#062e25,#0f9d74);--ig:linear-gradient(135deg,#dff6ee,#b9ebd9)">
+<div class="top"><b>🛍️ Urban Cart</b><a href="../index.html#work">← Back to portfolio</a></div>
+<div class="hero"><h1>Everyday tech, delivered fast.</h1><p>Shop audio, wearables and accessories. Add to cart and checkout in seconds.</p><a class="btn" href="#shop">Shop now</a></div>
+
+<section id="shop"><h2>Products</h2><div class="tabs" id="tabs"></div><div class="cards" id="grid"></div></section>
+<section><h2>Your cart</h2><div class="cart" id="cart"></div></section>
+
+<footer>Demo project by Divyansh Sharma</footer>
+
+<script>
+const P=[['Wireless Earbuds','Audio',2499,'🎧'],['Bluetooth Speaker','Audio',1899,'🔊'],['Smart Watch','Wearables',3999,'⌚'],['Fitness Band','Wearables',1799,'📿'],['Power Bank','Accessories',1299,'🔋'],['Phone Case','Accessories',499,'📱'],['USB-C Cable','Accessories',299,'🔌'],['Laptop Sleeve','Accessories',899,'💼']];
+const C=['All','Audio','Wearables','Accessories'];
+let cart={};
+
+function show(t){
+  tabs.innerHTML=C.map(x=>'<button class="'+(x==t?'on':'')+'" onclick="show(\''+x+'\')">'+x+'</button>').join('');
+  grid.innerHTML=P.map((p,i)=>(t=='All'||p[1]==t)?'<div class="item"><div class="img">'+p[3]+'</div><div class="b"><h3>'+p[0]+'</h3><p>'+p[1]+'</p><div class="price">₹'+p[2]+'<button onclick="add('+i+',1)">Add</button></div></div></div>':'').join('')
+}
+function add(i,d){cart[i]=(cart[i]||0)+d;if(cart[i]<=0)delete cart[i];draw()}
+function draw(){
+  const k=Object.keys(cart);
+  if(!k.length){cartEl.innerHTML='Your cart is empty. Add a product above.';return}
+  let s=0;
+  cartEl.innerHTML=k.map(i=>{s+=P[i][2]*cart[i];return '<div class="row"><span>'+P[i][3]+' '+P[i][0]+'</span><span><button onclick="add('+i+',-1)">−</button> '+cart[i]+' <button onclick="add('+i+',1)">+</button> ₹'+P[i][2]*cart[i]+'</span></div>'}).join('')
+   +'<div class="row"><b>Total</b><b>₹'+s+'</b></div><br><button class="btn" onclick="cart={};draw();cartEl.innerHTML=\'Order placed! Thank you for shopping.\'">Checkout</button>'
+}
+const cartEl=document.getElementById('cart');
+show('All');draw();
+</script>
+</body>
+</html>
