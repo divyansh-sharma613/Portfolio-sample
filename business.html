@@ -1,48 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Manrope:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/demo.css">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1"
+>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Manrope:wght@400;700&display=swap"
+  rel="stylesheet"
+>
+
+<link rel="stylesheet" href="demo.css">
+
 <title>Northline Consulting</title>
+
 </head>
-<body style="--a:#1f5eff;--hg:linear-gradient(120deg,#0b1f4d,#1f5eff);--ig:linear-gradient(135deg,#e3ecff,#c5d6ff)">
-<div class="top"><b>🏢 Northline Consulting</b><a href="../index.html#work">← Back to portfolio</a></div>
-<div class="hero"><h1>Grow your business with clear strategy.</h1><p>We help growing companies plan, market and scale with confidence.</p><a class="btn" href="#contact">Get a free consultation</a></div>
 
-<section><div class="stats">
-  <div><b>250+</b>Clients served</div>
-  <div><b>12</b>Years of experience</div>
-  <div><b>98%</b>Client satisfaction</div>
-  <div><b>15</b>Countries</div>
-</div></section>
+<body
+  style="
+    --a:#1f5eff;
+    --hg:linear-gradient(120deg,#0b1f4d,#1f5eff);
+    --ig:linear-gradient(135deg,#e3ecff,#c5d6ff);
+  "
+>
 
-<section><h2>Our services</h2><div class="cards">
-  <div class="item"><div class="img">📈</div><div class="b"><h3>Business strategy</h3><p>Clear plans with measurable goals.</p></div></div>
-  <div class="item"><div class="img">📣</div><div class="b"><h3>Digital marketing</h3><p>SEO, ads and social that bring leads.</p></div></div>
-  <div class="item"><div class="img">💼</div><div class="b"><h3>Operations</h3><p>Simpler processes and lower costs.</p></div></div>
-</div></section>
+<div class="top">
 
-<section><h2>What clients say</h2>
-<div class="item"><div class="b"><h3>"Our revenue grew 40% in six months."</h3><p>Anita Verma, Founder, Verma Textiles</p></div></div></section>
+  <b>🏢 Northline Consulting</b>
 
-<section id="contact"><h2>Send an enquiry</h2>
-<form id="f">
-  <input id="n" placeholder="Your name">
-  <input id="e" type="email" placeholder="Email">
-  <textarea id="t" rows="4" placeholder="How can we help?"></textarea>
-  <button class="btn">Send enquiry</button>
-  <p id="msg"></p>
-</form></section>
+  <a href="index.html#work">
+    ← Back to portfolio
+  </a>
 
-<footer>Demo project by Divyansh Sharma</footer>
+</div>
+
+
+<div class="hero">
+
+  <h1>
+    Grow your business with clear strategy.
+  </h1>
+
+  <p>
+    We help growing companies plan, market and scale with confidence.
+  </p>
+
+  <a class="btn" href="#contact">
+    Get a free consultation
+  </a>
+
+</div>
+
+
+<section>
+
+  <div class="stats">
+
+    <div>
+      <b>250+</b>
+      Clients served
+    </div>
+
+    <div>
+      <b>12</b>
+      Years of experience
+    </div>
+
+    <div>
+      <b>98%</b>
+      Client satisfaction
+    </div>
+
+    <div>
+      <b>15</b>
+      Countries
+    </div>
+
+  </div>
+
+</section>
+
+
+<section>
+
+  <h2>Our services</h2>
+
+  <div class="cards">
+
+    <div class="item">
+
+      <div class="img">📈</div>
+
+      <div class="b">
+
+        <h3>Business strategy</h3>
+
+        <p>
+          Clear plans with measurable goals.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="img">📣</div>
+
+      <div class="b">
+
+        <h3>Digital marketing</h3>
+
+        <p>
+          SEO, ads and social that bring leads.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="img">💼</div>
+
+      <div class="b">
+
+        <h3>Operations</h3>
+
+        <p>
+          Simpler processes and lower costs.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section>
+
+  <h2>What clients say</h2>
+
+  <div class="item">
+
+    <div class="b">
+
+      <h3>
+        "Our revenue grew 40% in six months."
+      </h3>
+
+      <p>
+        Anita Verma, Founder, Verma Textiles
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="contact">
+
+  <h2>Send an enquiry</h2>
+
+  <form id="f">
+
+    <input
+      id="n"
+      placeholder="Your name"
+      required
+    >
+
+    <input
+      id="e"
+      type="email"
+      placeholder="Email"
+      required
+    >
+
+    <textarea
+      id="t"
+      rows="4"
+      placeholder="How can we help?"
+      required
+    ></textarea>
+
+    <button class="btn">
+      Send enquiry
+    </button>
+
+    <p id="msg"></p>
+
+  </form>
+
+</section>
+
+
+<footer>
+  Demo project by Divyansh Sharma
+</footer>
+
 
 <script>
-f.onsubmit=x=>{
-  x.preventDefault();
-  msg.textContent=(!n.value.trim()||!/^\S+@\S+\.\S+$/.test(e.value)||!t.value.trim())?'Please fill all fields with a valid email.':'Thanks '+n.value+', we will reply within 24 hours.';
-}
+
+const form = document.getElementById("f");
+const nameInput = document.getElementById("n");
+const emailInput = document.getElementById("e");
+const textInput = document.getElementById("t");
+const message = document.getElementById("msg");
+
+form.addEventListener("submit", (event) => {
+
+  event.preventDefault();
+
+  const name = nameInput.value.trim();
+  const email = emailInput.value.trim();
+  const text = textInput.value.trim();
+
+  const emailPattern =
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (
+    !name ||
+    !email ||
+    !text ||
+    !emailPattern.test(email)
+  ) {
+
+    message.textContent =
+      "Please fill all fields with a valid email.";
+
+    return;
+  }
+
+  message.textContent =
+    `Thanks ${name}, we will reply within 24 hours.`;
+
+  form.reset();
+
+});
+
 </script>
+
 </body>
 </html>
