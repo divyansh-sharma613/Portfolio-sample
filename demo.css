@@ -1,31 +1,345 @@
-*{box-sizing:border-box;margin:0}
-body{font:1rem/1.6 Manrope,system-ui,sans-serif;color:#1d1d24;background:#fbfaf8}
-h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.15}
-.top{display:flex;justify-content:space-between;align-items:center;padding:16px 5%;background:#1d1d24;color:#fff}
-.top a{color:#fff;text-decoration:none;font-size:.9rem;opacity:.85}
-.hero{padding:96px 5%;background:var(--hg);color:#fff}
-.hero h1{font-size:clamp(2.2rem,5vw,3.8rem);max-width:17ch}
-.hero p{max-width:52ch;margin:16px 0 28px;opacity:.92}
-.btn{display:inline-block;background:var(--a);color:#fff;border:0;border-radius:99px;padding:12px 26px;font:700 1rem Manrope,sans-serif;cursor:pointer;text-decoration:none}
-section{padding:64px 5%}
-h2{font-size:2rem;margin-bottom:24px}
-.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
-.tabs button{border:1px solid #d9d4cc;background:#fff;border-radius:99px;padding:8px 18px;font:inherit;cursor:pointer}
-.tabs .on{background:var(--a);color:#fff;border-color:var(--a)}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
-.item{background:#fff;border:1px solid #e8e3db;border-radius:16px;overflow:hidden}
-.img{height:150px;display:grid;place-items:center;font-size:3.6rem;background:var(--ig)}
-.b{padding:16px}
-.b h3{font-size:1.15rem}
-.b p{color:#66646e;font-size:.92rem}
-.price{display:flex;justify-content:space-between;align-items:center;margin-top:12px;font-weight:700}
-.price button{background:var(--a);color:#fff;border:0;border-radius:99px;padding:6px 16px;cursor:pointer;font:inherit}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px;text-align:center}
-.stats b{display:block;font:600 2.6rem Fraunces,serif;color:var(--a)}
-form{display:grid;gap:14px;max-width:520px}
-input,select,textarea{padding:12px;border:1px solid #d9d4cc;border-radius:10px;font:inherit;width:100%}
-#msg{color:var(--a);font-weight:700;min-height:1.5em}
-.cart{background:#fff;border:1px solid #e8e3db;border-radius:16px;padding:20px;max-width:560px}
-.row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #eee}
-.row button{width:28px;height:28px;border-radius:50%;border:1px solid #ccc;background:#fff;cursor:pointer}
-footer{padding:28px 5%;background:#1d1d24;color:#aaa;text-align:center;font-size:.9rem}
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font: 1rem/1.6 Manrope, system-ui, sans-serif;
+
+  color: #1d1d24;
+
+  background: #fbfaf8;
+
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3 {
+  font-family: Fraunces, Georgia, serif;
+
+  line-height: 1.15;
+}
+
+.top {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 16px 5%;
+
+  background: #1d1d24;
+
+  color: #fff;
+}
+
+.top a {
+  color: #fff;
+
+  text-decoration: none;
+
+  font-size: 0.9rem;
+
+  opacity: 0.85;
+}
+
+.top a:hover {
+  opacity: 1;
+}
+
+.hero {
+  padding: 96px 5%;
+
+  background: var(--hg);
+
+  color: #fff;
+}
+
+.hero h1 {
+  font-size:
+    clamp(2.2rem, 5vw, 3.8rem);
+
+  max-width: 17ch;
+}
+
+.hero p {
+  max-width: 52ch;
+
+  margin: 16px 0 28px;
+
+  opacity: 0.92;
+}
+
+.btn {
+  display: inline-block;
+
+  background: var(--a);
+
+  color: #fff;
+
+  border: 0;
+
+  border-radius: 99px;
+
+  padding: 12px 26px;
+
+  font: 700 1rem Manrope, sans-serif;
+
+  cursor: pointer;
+
+  text-decoration: none;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+section {
+  padding: 64px 5%;
+}
+
+h2 {
+  font-size: 2rem;
+
+  margin-bottom: 24px;
+}
+
+.tabs {
+  display: flex;
+
+  gap: 10px;
+
+  flex-wrap: wrap;
+
+  margin-bottom: 24px;
+}
+
+.tabs button {
+  border: 1px solid #d9d4cc;
+
+  background: #fff;
+
+  border-radius: 99px;
+
+  padding: 8px 18px;
+
+  font: inherit;
+
+  cursor: pointer;
+}
+
+.tabs .on {
+  background: var(--a);
+
+  color: #fff;
+
+  border-color: var(--a);
+}
+
+.cards {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(230px, 1fr));
+
+  gap: 22px;
+}
+
+.item {
+  background: #fff;
+
+  border: 1px solid #e8e3db;
+
+  border-radius: 16px;
+
+  overflow: hidden;
+}
+
+.img {
+  height: 150px;
+
+  display: grid;
+
+  place-items: center;
+
+  font-size: 3.6rem;
+
+  background: var(--ig);
+}
+
+.b {
+  padding: 16px;
+}
+
+.b h3 {
+  font-size: 1.15rem;
+}
+
+.b p {
+  color: #66646e;
+
+  font-size: 0.92rem;
+}
+
+.price {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-top: 12px;
+
+  font-weight: 700;
+}
+
+.price button {
+  background: var(--a);
+
+  color: #fff;
+
+  border: 0;
+
+  border-radius: 99px;
+
+  padding: 6px 16px;
+
+  cursor: pointer;
+
+  font: inherit;
+}
+
+.stats {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(150px, 1fr));
+
+  gap: 20px;
+
+  text-align: center;
+}
+
+.stats b {
+  display: block;
+
+  font:
+    600 2.6rem Fraunces, serif;
+
+  color: var(--a);
+}
+
+form {
+  display: grid;
+
+  gap: 14px;
+
+  max-width: 520px;
+}
+
+input,
+select,
+textarea {
+  padding: 12px;
+
+  border: 1px solid #d9d4cc;
+
+  border-radius: 10px;
+
+  font: inherit;
+
+  width: 100%;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--a);
+
+  outline-offset: 2px;
+}
+
+#msg {
+  color: var(--a);
+
+  font-weight: 700;
+
+  min-height: 1.5em;
+}
+
+.cart {
+  background: #fff;
+
+  border: 1px solid #e8e3db;
+
+  border-radius: 16px;
+
+  padding: 20px;
+
+  max-width: 560px;
+}
+
+.row {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 10px 0;
+
+  border-bottom: 1px solid #eee;
+}
+
+.row button {
+  width: 28px;
+
+  height: 28px;
+
+  border-radius: 50%;
+
+  border: 1px solid #ccc;
+
+  background: #fff;
+
+  cursor: pointer;
+}
+
+footer {
+  padding: 28px 5%;
+
+  background: #1d1d24;
+
+  color: #aaa;
+
+  text-align: center;
+
+  font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+
+  .top {
+    gap: 15px;
+  }
+
+  .top a {
+    font-size: 0.8rem;
+  }
+
+  .hero {
+    padding: 70px 5%;
+  }
+
+  section {
+    padding: 50px 5%;
+  }
+
+  .row {
+    align-items: flex-start;
+  }
+}
