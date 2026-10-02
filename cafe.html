@@ -1,38 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Manrope:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/demo.css">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1"
+>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Manrope:wght@400;700&display=swap"
+  rel="stylesheet"
+>
+
+<link rel="stylesheet" href="demo.css">
+
 <title>Brew &amp; Bloom Café</title>
+
 </head>
-<body style="--a:#b5532f;--hg:linear-gradient(120deg,#3b2417,#8a4b2b);--ig:linear-gradient(135deg,#f6e3cf,#efc9a6)">
-<div class="top"><b>☕ Brew &amp; Bloom</b><a href="../index.html#work">← Back to portfolio</a></div>
-<div class="hero"><h1>Fresh coffee, slow mornings.</h1><p>Small-batch coffee, handmade food and a table waiting for you.</p><a class="btn" href="#book">Book a table</a></div>
 
-<section><h2>Our menu</h2><div class="tabs" id="tabs"></div><div class="cards" id="menu"></div></section>
+<body
+  style="
+    --a:#b5532f;
+    --hg:linear-gradient(120deg,#3b2417,#8a4b2b);
+    --ig:linear-gradient(135deg,#f6e3cf,#efc9a6);
+  "
+>
 
-<section id="book"><h2>Book a table</h2>
-<form id="f">
-  <input id="n" placeholder="Your name">
-  <input id="d" type="date">
-  <select id="g"><option>2 guests</option><option>4 guests</option><option>6 guests</option></select>
-  <button class="btn">Confirm booking</button>
-  <p id="msg"></p>
-</form></section>
+<div class="top">
 
-<footer>Demo project by Divyansh Sharma</footer>
+  <b>☕ Brew &amp; Bloom</b>
+
+  <a href="index.html#work">
+    ← Back to portfolio
+  </a>
+
+</div>
+
+
+<div class="hero">
+
+  <h1>
+    Fresh coffee, slow mornings.
+  </h1>
+
+  <p>
+    Small-batch coffee, handmade food and a table waiting for you.
+  </p>
+
+  <a class="btn" href="#book">
+    Book a table
+  </a>
+
+</div>
+
+
+<section>
+
+  <h2>Our menu</h2>
+
+  <div
+    class="tabs"
+    id="tabs"
+  ></div>
+
+  <div
+    class="cards"
+    id="menu"
+  ></div>
+
+</section>
+
+
+<section id="book">
+
+  <h2>Book a table</h2>
+
+  <form id="f">
+
+    <input
+      id="n"
+      placeholder="Your name"
+      required
+    >
+
+    <input
+      id="d"
+      type="date"
+      required
+    >
+
+    <select id="g">
+
+      <option>2 guests</option>
+      <option>4 guests</option>
+      <option>6 guests</option>
+
+    </select>
+
+    <button class="btn">
+      Confirm booking
+    </button>
+
+    <p id="msg"></p>
+
+  </form>
+
+</section>
+
+
+<footer>
+  Demo project by Divyansh Sharma
+</footer>
+
 
 <script>
-const M=[['Cappuccino','Coffee',180,'☕'],['Cold Brew','Coffee',220,'🧊'],['Masala Chai','Coffee',120,'🫖'],['Avocado Toast','Food',320,'🥑'],['Paneer Sandwich','Food',260,'🥪'],['Pasta Alfredo','Food',360,'🍝'],['Choco Brownie','Dessert',190,'🍫'],['Cheesecake','Dessert',280,'🍰']];
-const c=['All','Coffee','Food','Dessert'];
-function show(t){
-  tabs.innerHTML=c.map(x=>'<button class="'+(x==t?'on':'')+'" onclick="show(\''+x+'\')">'+x+'</button>').join('');
-  menu.innerHTML=M.filter(m=>t=='All'||m[1]==t).map(m=>'<div class="item"><div class="img">'+m[3]+'</div><div class="b"><h3>'+m[0]+'</h3><p>'+m[1]+'</p><div class="price">₹'+m[2]+'</div></div></div>').join('')
+
+const M = [
+  ["Cappuccino", "Coffee", 180, "☕"],
+  ["Cold Brew", "Coffee", 220, "🧊"],
+  ["Masala Chai", "Coffee", 120, "🫖"],
+  ["Avocado Toast", "Food", 320, "🥑"],
+  ["Paneer Sandwich", "Food", 260, "🥪"],
+  ["Pasta Alfredo", "Food", 360, "🍝"],
+  ["Choco Brownie", "Dessert", 190, "🍫"],
+  ["Cheesecake", "Dessert", 280, "🍰"]
+];
+
+const categories = [
+  "All",
+  "Coffee",
+  "Food",
+  "Dessert"
+];
+
+const tabs = document.getElementById("tabs");
+const menu = document.getElementById("menu");
+
+function show(category) {
+
+  tabs.innerHTML =
+    categories
+      .map((item) => `
+        <button
+          class="${item === category ? "on" : ""}"
+          onclick="show('${item}')"
+        >
+          ${item}
+        </button>
+      `)
+      .join("");
+
+  menu.innerHTML =
+    M
+      .filter(
+        (item) =>
+          category === "All" ||
+          item[1] === category
+      )
+      .map(
+        (item) => `
+          <div class="item">
+
+            <div class="img">
+              ${item[3]}
+            </div>
+
+            <div class="b">
+
+              <h3>${item[0]}</h3>
+
+              <p>${item[1]}</p>
+
+              <div class="price">
+                ₹${item[2]}
+              </div>
+
+            </div>
+
+          </div>
+        `
+      )
+      .join("");
 }
-show('All');
-f.onsubmit=e=>{e.preventDefault();msg.textContent=(!n.value.trim()||!d.value)?'Please enter your name and date.':'Table booked for '+n.value+' on '+d.value+'. See you soon!'}
+
+show("All");
+
+
+const form = document.getElementById("f");
+const nameInput = document.getElementById("n");
+const dateInput = document.getElementById("d");
+const message = document.getElementById("msg");
+
+form.addEventListener("submit", (event) => {
+
+  event.preventDefault();
+
+  const name = nameInput.value.trim();
+  const date = dateInput.value;
+
+  if (!name || !date) {
+
+    message.textContent =
+      "Please enter your name and date.";
+
+    return;
+  }
+
+  message.textContent =
+    `Table booked for ${name} on ${date}. See you soon!`;
+
+  form.reset();
+
+});
+
 </script>
+
 </body>
 </html>
